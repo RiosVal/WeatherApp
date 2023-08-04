@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Font Montserrat-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Weather App</title>
+</head>
+<body>
+    
+    <main>
+        <h1>The Weather</h1>
+
+        <% if (locals.city) { %>
+            <section id="actualTemperature">
+                <h2 id="city"><b> <%= city %> </b></h2>
+                <p id="temperature"> <%= temperature %>°C </p>
+                <p id="weatherDescription"> <%= weatherDescription %> </p>
+                <img src=<%= iconURL %> alt="Weather icon" width="200px" height="200px">
+                <div class="estimatedActualTemperature">
+                    <p> H: <%= highest %>°C </p>
+                    <p> L: <%= lowest %>°C </p>
+                </div>
+            </section>
+    
+            <section id="details">
+                <div class="detail blurredBackground">
+                    <div>
+                        <img src="images/termometro.png" width="40px" height="40px">
+                        <h3>Feels like</h3>
+                    </div>
+                    <p> <%= feelsLike %>°C </p>
+                </div>
+        
+                <div class="detail blurredBackground">
+                    <div style="gap: 7px;">
+                        <img src="images/humedad.png" width="22px" height="22px">
+                        <h3>Humidity</h3>
+                    </div>
+                    <p> <%= humidity %>% </p>
+                </div>
+        
+                <div class="detail blurredBackground">
+                    <div style="gap: 7px;">
+                        <img src="images/visibilidad.png" width="22px" height="22px">
+                        <h3>Visibility</h3>
+                    </div>
+                    <p> <%= visibility %>km </p>
+                </div>
+    
+                <div class="detail blurredBackground">
+                    <div style="gap: 7px;">
+                        <img src="images/viento.png" width="22px" height="22px">
+                        <h3 style="width: 70px; text-align: center;">Wind speed</h3>
+                    </div>
+                    <p> <%= windSpeed %>km/h </p>
+                </div>
+    
+                <div class="uvIndex blurredBackground">
+    
+                </div>
+            </section>
+        <% } else { %>
+            <form action="/submit" method="POST">
+                <input type="text" name="city" placeholder="Enter your city here (ex: London)">
+                <input type="submit" value="Submit">
+            </form>
+         <% } %>
+         
+
+
+    </main>
+    
+</body>
+</html>
