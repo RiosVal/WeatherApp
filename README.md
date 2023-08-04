@@ -1,4 +1,4 @@
-##READ ME  
+## READ ME  
 In order for the app to work, follow the next steps on the command line:  
 1. cd "the path of the directory you have the project on"
 2. npm install
